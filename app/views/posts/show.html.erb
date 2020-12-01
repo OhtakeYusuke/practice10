@@ -1,0 +1,8 @@
+<h1>投稿詳細</h1>
+
+<p><%= @post.title %></p>
+<p><%= @post.description %></p>
+<div>
+  <%= link_to '編集', edit_post_path %>
+  <%= link_to '削除', post_path, method: :delete, data: {confirm: "削除してもいいですか"} %>
+</div>

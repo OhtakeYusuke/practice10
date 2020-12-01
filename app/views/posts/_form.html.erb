@@ -1,0 +1,13 @@
+<% post.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
+
+<%= form_with model: post, local: true do |f| %>
+<p><%= f.label :title %></p>
+<%= f.text_field :title %>
+<p><%= f.label :description %></p>
+<%= f.text_field :description %>
+<div>
+  <%= f.submit nil %>
+</div>
+<% end %>
