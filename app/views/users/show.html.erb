@@ -1,3 +1,4 @@
+<% breadcrumb :user_show, @user%>
 <h1>ユーザ詳細</h1>
 <p>
   <%= @user.name %>
@@ -5,4 +6,11 @@
 <p>
   <%= @user.profile %>
 </p>
-<div></div>
+<%= link_to '編集', edit_user_path %>
+<div>
+  <% @user.posts.each do |post| %>
+    <p>
+      <%= link_to post.title, post_path(post) %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<% breadcrumb :user_new_confirm, @user %>
+<h1>確認画面</h1>
+<%= form_with model: @user, local: true do |f| %>
+  <p>
+    <%= @user.name %>
+    <%= f.hidden_field :name%>
+  </p>
+  <p>
+    <%= @user.age %>
+    <%= f.hidden_field :age %>
+  </p>
+  <p>
+    <%= @user.profile %>
+    <%= f.hidden_field :profile %>
+  </p>
+  <p>
+    <%= @user.email %>
+    <%= f.hidden_field :email%>
+  </p>
+  <p>
+    <%= @user.password %>
+    <%= f.hidden_field :password %>
+  </p>
+  <%= f.submit :back %>
+  <%= f.submit "登録" %>
+<% end %>

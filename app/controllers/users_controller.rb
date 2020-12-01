@@ -4,8 +4,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def confirm
+    @user = User.new(user_params)
+    render :new unless @user.valid?
+  end
+
   def create
     @user = User.new(user_params)
+
+    if params[:back].present?
+      render :new
+      return
+    end
     if @user.save
       redirect_to root_url, notice: "ユーザ登録を完了しました"
       session[:user_id] = @user.id
@@ -32,7 +42,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :age, :profile, :email, :password)
+    params.require(:user).permit(:name, :age, :profile, :email, :password, :admin)
   end
   def find_user_id
     @user = User.find_by(id: params[:id])

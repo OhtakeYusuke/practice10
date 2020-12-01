@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <div>
+      <%= breadcrumbs separator: "&gt;"%>
+    </div>
     <% if flash.notice.present? %>
       <%= flash.notice %>
     <% end %>
@@ -21,6 +24,8 @@
         <%= link_to '新規登録', new_user_path %>
         <%= link_to 'ログイン', login_path %>
     <% end %>
+      <%= link_to '管理機能画面', admin_users_path %>
+
     <%= yield %>
   </body>
 </html>
