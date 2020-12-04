@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "posts#index"
+  root to:  "posts#index"
   resources :posts
   resources :users do
     post "confirm", on: :new

@@ -38,14 +38,15 @@ RSpec.describe "Posts", type: :request do
     end
   end
 
-  describe "POST #create" do
-    let(:user) {create(:user)}
-    subject{post(posts_path, params: {post: attributes_for(:post, user: user.id)})}
-    context "パラメータが正常なとき" do
-      it "リクエスト成功" do
-        subject
-        expect(response).to have_http_status(302)
-      end
-    end
-  end
+  # describe "POST #create" do
+  #   let!(:user) {create(:user)}
+  #   context "パラメータが正常なとき" do
+  #     subject{post(posts_path, params: {post: attributes_for(:post)})}
+  #     it "リクエスト成功" do
+  #       # binding.pry
+  #       subject
+  #       expect(response).to have_http_status(302)
+  #     end
+  #   end
+  # end
 end
